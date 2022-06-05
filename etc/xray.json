@@ -45,7 +45,8 @@
         "rules": 
         [
             {"type": "field","inboundTag": ["onetag"],"outboundTag": "twotag"},
-            {"type": "field","outboundTag": "sockstor","domain": ["geosite:tor"]},
+            {"type": "field","outboundTag": "direct","domain": ["cc3001.dmm.co.jp","pics.dmm.co.jp"]},
+            {"type": "field","outboundTag": "sockstor","domain": ["geosite:tor","dmm.co.jp"]},
             {"type": "field","outboundTag": "blocked","domain": ["geosite:category-ads-all"]}
         ]
     }
