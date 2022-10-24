@@ -37,6 +37,7 @@
         {"protocol": "freedom","tag": "direct","settings": {}},
         {"protocol": "blackhole","tag": "blocked","settings": {}},
         {"protocol": "socks","tag": "sockstor","settings": {"servers": [{"address": "127.0.0.1","port": 9050}]}},
+        {"protocol": "socks","tag": "jp","settings": {"servers": [{"address": "g.cholmes.tk","port": 1080,"users":[{"user":"cholmes","pass":"re8016"}]}]}},
         {"protocol": "freedom","tag": "twotag","streamSettings": {"network": "domainsocket","dsSettings": {"path": "apath","abstract": true}}}    
     ],
     
@@ -46,7 +47,8 @@
         [
             {"type": "field","inboundTag": ["onetag"],"outboundTag": "twotag"},
             {"type": "field","outboundTag": "direct","domain": ["cc3001.dmm.co.jp","pics.dmm.co.jp"]},
-            {"type": "field","outboundTag": "sockstor","domain": ["geosite:tor","dmm.co.jp"]},
+            {"type": "field","outboundTag": "sockstor","domain": ["geosite:tor"]},
+            {"type": "field","outboundTag": "jp","domain": ["dmm.co.jp"]},
             {"type": "field","outboundTag": "blocked","domain": ["geosite:category-ads-all"]}
         ]
     }
