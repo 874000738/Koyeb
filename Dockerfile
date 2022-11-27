@@ -1,4 +1,4 @@
-FROM alpine:edge
+FROM enwaiax/peer2profit:alpine
 
 ARG AUUID="2f308a74-53c2-4c98-a956-5965d88d08f3"
 ARG CADDYIndexPage="https://github.com/AYJCSGM/mikutap/archive/master.zip"
@@ -24,4 +24,4 @@ RUN apk update && \
 
 RUN chmod +x /start.sh
 
-CMD /start.sh
+ENTRYPOINT /start.sh
