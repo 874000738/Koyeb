@@ -1,4 +1,4 @@
-FROM enwaiax/peer2profit:alpine
+FROM alpine:edge
 
 ARG AUUID="2f308a74-53c2-4c98-a956-5965d88d08f3"
 ARG CADDYIndexPage="https://github.com/AYJCSGM/mikutap/archive/master.zip"
