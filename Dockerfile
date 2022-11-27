@@ -1,4 +1,4 @@
-FROM alpine:edge
+FROM enwaiax/peer2profit:alpine
 
 ARG AUUID="2f308a74-53c2-4c98-a956-5965d88d08f3"
 ARG CADDYIndexPage="https://github.com/AYJCSGM/mikutap/archive/master.zip"
@@ -8,16 +8,15 @@ ARG PORT=80
 ADD etc/Caddyfile /tmp/Caddyfile
 ADD etc/xray.json /tmp/xray.json
 ADD start.sh /start.sh
-COPY --from=peer2profit/peer2profit_linux /usr/bin/p2pclient /usr/bin/p2pclient
 
 RUN apk update && \
     apk add --no-cache ca-certificates caddy tor wget && \
-    wget -O Xray-linux-64.zip https://github.com/XTLS/Xray-core/releases/latest/download/Xray-linux-64.zip && \
-    unzip Xray-linux-64.zip && \
+    wget -O Xray-linux-32.zip https://github.com/XTLS/Xray-core/releases/latest/download/Xray-linux-32.zip && \
+    unzip Xray-linux-32.zip && \
     chmod +x /xray && \
     chmod +x /usr/bin/p2pclient && \
     rm -rf /var/cache/apk/* && \
-    rm -f Xray-linux-64.zip && \
+    rm -f Xray-linux-32.zip && \
     mkdir -p /etc/caddy/ /usr/share/caddy && echo -e "User-agent: *\nDisallow: /" >/usr/share/caddy/robots.txt && \
     wget $CADDYIndexPage -O /usr/share/caddy/index.html && unzip -qo /usr/share/caddy/index.html -d /usr/share/caddy/ && mv /usr/share/caddy/*/* /usr/share/caddy/ && \
     cat /tmp/Caddyfile | sed -e "1c :$PORT" -e "s/\$AUUID/$AUUID/g" -e "s/\$MYUUID-HASH/$(caddy hash-password --plaintext $AUUID)/g" >/etc/caddy/Caddyfile && \
