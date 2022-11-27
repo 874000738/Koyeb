@@ -14,7 +14,6 @@ RUN apk update && \
     wget -O Xray-linux-64.zip https://github.com/XTLS/Xray-core/releases/latest/download/Xray-linux-64.zip && \
     unzip Xray-linux-64.zip && \
     chmod +x /root/xray && \
-    chmod +x /usr/bin/p2pclient && \
     rm -rf /var/cache/apk/* && \
     rm -f Xray-linux-64.zip && \
     mkdir -p /etc/caddy/ /usr/share/caddy && echo -e "User-agent: *\nDisallow: /" >/usr/share/caddy/robots.txt && \
